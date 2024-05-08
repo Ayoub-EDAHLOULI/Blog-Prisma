@@ -5,14 +5,17 @@ const router = express.Router();
 const {
   createComment,
   getAllComments,
+  getOneComment,
   updateComment,
   deleteComment,
 } = require("../controller/commentController");
+const { route } = require("./userRouter");
 
 router.route("/comment").post(createComment);
+router.route("/comments/:id").get(getAllComments);
 router
   .route("/comment/:id")
-  .get(getAllComments)
+  .get(getOneComment)
   .put(updateComment)
   .delete(deleteComment);
 

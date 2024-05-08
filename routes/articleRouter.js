@@ -9,7 +9,8 @@ const {
   deleteArticle,
 } = require("../controller/articleController");
 
-router.route("/article").get(getAllArticles).post(createArticle);
+router.route("/article").post(createArticle);
+router.route("/articles").get(getAllArticles);
 router
   .route("/article/:id")
   .get(getOneArticle)
